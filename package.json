@@ -1,0 +1,15 @@
+{
+  "name": "model-safety",
+  "description": "模型安全评估概念站（REDLINE 红线）：AI 能力事实库 + 攻击面地图 + 交互式注入演示 + 评估体系介绍，零依赖静态单页。",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch server.mjs",
+    "start": "node server.mjs"
+  },
+  "monoboard": {
+    "category": "app",
+    "stage": "building"
+  }
+}
