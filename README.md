@@ -2,6 +2,8 @@
 
 模型安全评估概念站：论证「AI 模型能力 → 系统不安全 → 我们的评估能力」三段式叙事，零依赖静态单页。
 
+**线上地址：<https://flashclub.github.io/model-safety/>**（GitHub Pages，推送 `main` 即发布）
+
 ## 定位
 
 对外展示用的概念站（pitch site），回答三个问题：
