@@ -19,8 +19,8 @@ pnpm start  # 生产模式
 
 ## 结构
 
-- `public/index.html` — 全部页面（内联 CSS/JS，无构建、无外部依赖）
-- `server.mjs` — 仅 Node 内置模块的静态文件服务
+- `index.html` — 全部页面（内联 CSS/JS，无构建、无外部依赖）
+- `server.mjs` — 仅 Node 内置模块的静态文件服务（本地预览用）
 
 ## 页面内交互
 
@@ -36,7 +36,7 @@ pnpm start  # 生产模式
 
 ## 部署
 
-GitHub Pages（Actions 工作流部署 `public/`）：推送 `main` 分支自动发布。
+GitHub Pages：从 `main` 分支根目录直接构建，推送即发布。
 
 ## 待办
 

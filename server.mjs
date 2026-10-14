@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 // model-safety（REDLINE）：模型安全评估概念站，纯静态单页。
-// 零依赖，仅用 Node 内置模块（Node >= 20）。页面在 public/。
+// 零依赖，仅用 Node 内置模块（Node >= 20）。页面为仓库根目录的 index.html。
 import http from 'node:http';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const PUBLIC_DIR = path.join(__dirname, 'public');
+const PUBLIC_DIR = __dirname;
 const PORT = Number(process.env.PORT || 3030);
 
 const MIME = {
@@ -23,6 +23,12 @@ const MIME = {
 async function serveStatic(res, pathname) {
   let rel = decodeURIComponent(pathname);
   if (rel === '/') rel = '/index.html';
+  // 本地服务顺带兜底仓库根目录，跳过点文件（.git 等）
+  if (path.basename(rel).startsWith('.')) {
+    res.writeHead(404, { 'content-type': 'text/plain; charset=utf-8' });
+    res.end('Not found');
+    return;
+  }
   const filePath = path.normalize(path.join(PUBLIC_DIR, rel));
   if (!filePath.startsWith(PUBLIC_DIR + path.sep) && filePath !== PUBLIC_DIR) {
     res.writeHead(403);
